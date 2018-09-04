@@ -1,7 +1,17 @@
 .page-header {
-    background-color: #ff9400;
+    background-color: #57AE88;
     margin-top: 0;
     padding: 20px 20px 20px 40px;
+    border-bottom: 1px solid #0C6C42;
+
+}
+
+#recentPost a {
+  color: 004F2D;
+}
+
+.glyphicon-plus {
+  padding-top: 25px;
 }
 
 .page-header h1, .page-header h1 a, .page-header h1 a:visited, .page-header h1 a:active {
@@ -15,7 +25,7 @@
 }
 
 h1, h2, h3, h4 {
-    font-family: 'Lobster', cursive;
+    font-family: 'Roboto', sans-serif;
 }
 
 .date {
@@ -43,4 +53,8 @@ h1, h2, h3, h4 {
 
 .post h1 a, .post h1 a:visited {
     color: #000000;
+}
+
+.post_text {
+  padding-left: 5px;
 }

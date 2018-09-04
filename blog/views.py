@@ -6,13 +6,16 @@ from .forms import PostForm
 # Create your views here.
 
 def post_list(request):
-    posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
-    return render(request, 'blog/post_list.html', {'posts': posts})
+    posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('-published_date')
+    posts_length = len(posts)
+    most_recent_post = posts[0]
+    posts = posts[1:]
+    return render(request, 'blog/post_list.html', {'posts': posts, 'recent_post': most_recent_post})
 
 def post_detail(request, pk):
     post = get_object_or_404(Post, pk=pk)
     return render(request, 'blog/post_detail.html', {'post': post})
-   
+
 def post_new(request):
     if request.method == "POST":
         form = PostForm(request.POST)
