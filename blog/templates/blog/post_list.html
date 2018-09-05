@@ -1,22 +1,30 @@
 {% extends 'blog/base.html' %}
 {% block content %}
-    <div class="post">
+ <div class='gridContainer1'>
+
+    <div id='recentPost'>
       <div class="date">
         <p>PUBLISHED: {{ recent_post.published_date }}</p>
       </div>
-      <h1 id='recentPost'><a href="{% url 'post_detail' pk=recent_post.pk %}">{{ recent_post.title }}</a></h1>
+      <h1><a href="{% url 'post_detail' pk=recent_post.pk %}">{{ recent_post.title }}</a></h1>
       <p class='post_text'>{{ recent_post.text|linebreaksbr }}</p>
       <a href="{% url 'post_detail' pk=recent_post.pk %}"> See More</a>
     </div>
+</div>
 
+<hr>
+
+  <div class='gridContainer2'>
     {% for post in posts %}
     <div class="post">
         <div class="date">
             <p>PUBLISHED: {{ post.published_date }}</p>
         </div>
-        <h1><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h1>
+        <h2><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h2>
         <p class='post_text'>{{ post.text|linebreaksbr }}</p>
         <a href="{% url 'post_detail' pk=post.pk %}"> See More</a>
     </div>
    {% endfor %}
+  </div>
+
 {% endblock %}
