@@ -7,7 +7,11 @@
 }
 
 #recentPost a {
-  color: 004F2D;
+  color: white;
+}
+
+#recentPost h1 {
+  font-weight: bold;
 }
 
 .glyphicon-plus {
@@ -21,7 +25,7 @@
 }
 
 .content {
-    margin-left: 40px;
+    margin: auto;
 }
 
 h1, h2, h3, h4 {
@@ -59,26 +63,75 @@ h1, h2, h3, h4 {
   padding-left: 5px;
 }
 
+.glyphicon-edit {
+  padding-top: 25px;
+}
 
 .gridContainer1 {
   display: grid;
-  grid-template-columns: 200px 200px 200px 200px 200px;
-  grid-template-rows: 500px;
+  grid-template-columns: 200px 200px 200px 200px;
+  grid-template-rows: 250px 150px;
 }
 
 #recentPost {
   grid-column-start: 1;
-  grid-column-end: 5;
+  grid-column-end: 6;
   grid-row-start: 1;
   grid-row-end: 2;
-
+  background-color: #57AE89;
+  text-align: center;
+  padding: 5px;
+  word-wrap: break-word
 }
+
+
 
 .gridContainer2 {
   display: grid;
-  grid-template-columns: 200px 200px 200px ;
+  grid-template-columns: 400px 400px;
   grid-template-rows: 300px;
   grid-column-gap: 20px;
   grid-auto-flow: row;
   grid-row-gap: 30px;
+}
+
+
+@media only screen and (max-width: 900px) {
+  .gridContainer1 {
+    display: grid;
+    grid-template-columns: 200px 200px 200px 100px 100px;
+    grid-template-rows: 500px;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .gridContainer1 {
+    display: grid;
+    grid-template-columns: 200px 200px 100px 100px 100px;
+    grid-template-rows: 500px;
+  }
+}
+
+@media only screen and (max-width: 700px) {
+  .gridContainer1 {
+    display: grid;
+    grid-template-columns: 200px 100px 100px 100px 100px;
+    grid-template-rows: 500px;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .gridContainer1 {
+    display: grid;
+    grid-template-columns: 100px 100px 100px 100px 100px;
+    grid-template-rows: 500px;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .gridContainer1 {
+    display: grid;
+    grid-template-columns: 100px 100px 100px 50px 50px;
+    grid-template-rows: 500px;
+  }
 }

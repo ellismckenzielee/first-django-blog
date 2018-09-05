@@ -7,7 +7,8 @@
         <p>PUBLISHED: {{ recent_post.published_date }}</p>
       </div>
       <h1><a href="{% url 'post_detail' pk=recent_post.pk %}">{{ recent_post.title }}</a></h1>
-      <p class='post_text'>{{ recent_post.text|linebreaksbr }}</p>
+      <p class='post_text'>{{ recent_post.text|linebreaksbr|slice:"0:250" }}...</p>
+      <br>
       <a href="{% url 'post_detail' pk=recent_post.pk %}"> See More</a>
     </div>
 </div>
