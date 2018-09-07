@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Amatic+SC:400,700" rel="stylesheet">
     <link rel="stylesheet" href="{% static 'css/blog.css' %}">
 
     </head>
@@ -15,9 +16,16 @@
                 <a href="{% url 'post_draft_list' %}" class="top-menu"><span class="glyphicon glyphicon-edit"></span></a>
                 <a href="{% url 'post_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
             {% endif %}
-            <h1><a href="/">E</a></h1>
+            <h1><a id='title' href="/">Ellis Lee </a></h1>
         </div>
 
+        <div class='navbar'>
+          <ul>
+          {% for category in categories %}
+          <li><a href='{% url 'category_search' pk=category.pk %}'> {{ category.name }} </a</li>
+          {% endfor %}
+        </ul>
+      </div>
 
         <div class="content container">
             <div class="row">
@@ -27,5 +35,11 @@
                 </div>
             </div>
         </div>
+
+        <footer>
+          <h1> Ellis Lee Portfolio Site</h1>
+          <h3> <span class='glyphicon glyphicon-phone'></span> 07825428822 </h3>
+          <h3><span class='glyphicon glyphicon-envelope'></span> ellismckenzielee@gmail.com </h3>
+        </footer>
     </body>
 </html>

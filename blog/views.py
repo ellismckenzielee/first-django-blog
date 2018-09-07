@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.utils import timezone
-from .models import Post
+from .models import Post, Category
 from .forms import PostForm
 from django.contrib.auth.decorators import login_required
 
@@ -8,10 +8,11 @@ from django.contrib.auth.decorators import login_required
 
 def post_list(request):
     posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('-published_date')
+    categories = Category.objects.all()
     posts_length = len(posts)
     most_recent_post = posts[0]
     posts = posts[1:]
-    return render(request, 'blog/post_list.html', {'posts': posts, 'recent_post': most_recent_post})
+    return render(request, 'blog/post_list.html', {'posts': posts, 'recent_post': most_recent_post, 'categories': categories})
 
 def post_detail(request, pk):
     post = get_object_or_404(Post, pk=pk)
@@ -60,3 +61,8 @@ def remove(request, pk):
     post = get_object_or_404(Post, pk=pk)
     post.delete()
     return redirect('post_list')
+
+def category_search(request, pk):
+    posts = Post.objects.filter(category=pk)
+    category = get_object_or_404(Category, pk=pk)
+    return render(request, 'blog/category.html', {'posts': posts, 'category': category})

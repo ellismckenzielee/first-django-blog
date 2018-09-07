@@ -9,4 +9,5 @@ urlpatterns = [
     path('drafts/', views.post_draft_list, name='post_draft_list'),
     path('post/<int:pk>/publish', views.publish, name='post_publish'),
     path('post/<int:pk>/remove', views.remove, name='post_remove'),
+    path('category/<int:pk>/show', views.category_search, name='category_search')
 ]
